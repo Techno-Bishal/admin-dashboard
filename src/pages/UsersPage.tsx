@@ -3,6 +3,9 @@ import Header from '../components/Header'
 import StatCard from '../components/StatCard'
 import { UserCheck, UserPlus, UsersIcon, UserX } from 'lucide-react'
 import UserTable from '../components/users/UserTable';
+import UserGrowthChart from '../components/users/UserGrowthChart';
+import UserActivityHeatMap from '../components/users/UserActivityHeatMap';
+import UserDemographyChart from '../components/users/UserDemographyChart';
 
 
 const userStats = {
@@ -25,7 +28,7 @@ const UsersPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-            <StatCard
+        <StatCard
 			 name='Total Users'
 			icon={UsersIcon}
 			value={userStats.totalUsers.toLocaleString()}
@@ -43,6 +46,13 @@ const UsersPage = () => {
          </motion.div>
 
          <UserTable/>
+         {/*----Users Charts-*/}
+       <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8 '>
+            <UserGrowthChart/>
+            <UserActivityHeatMap/>
+            <UserDemographyChart/>
+       </div>  
+
          </main>
          </div>
   )
